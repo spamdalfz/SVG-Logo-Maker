@@ -1,11 +1,14 @@
-const circle = (size, color) => `<circle cx="${size / 2}" cy="${size / 2}" r="${size / 2}" fill="${color}" />`;
-
-const triangle = (size, color) => {
-    const halfSize = size / 2;
-    return `
-    <polygon points="${halfSize},0 ${size},${size} 0,${size}" fill="${color}" />
+const circle = (color) => {
+  const radius = 200 / 2;
+  return `
+    <circle cx="150" cy="100" r="${radius}" fill="${color}" />
   `;
 };
+
+const triangle = (color) => `
+  <polygon points="150,0 300,200 0,200" fill="${color}" />
+`;
+
 
 const square = (size, color) => `<rect x="0" y="0" width="${size}" height="${size}" fill="${color}" />`;
 

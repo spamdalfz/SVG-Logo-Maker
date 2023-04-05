@@ -5,7 +5,7 @@ const createSVG = (answers) => {
 
   let shapeElement;
   if (shape === 'circle') {
-    shapeElement = circle(100, shapeColor);
+    shapeElement = circle(shapeColor);
   } else if (shape === 'triangle') {
     shapeElement = triangle(100, shapeColor);
   } else {
