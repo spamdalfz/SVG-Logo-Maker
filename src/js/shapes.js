@@ -4,6 +4,7 @@ class Shape {
     this.color = color;
     this.width = width || 300;
     this.height = height || 200;
+
   }
 
   // Method that returns an empty string by default (to be overridden by subclasses)
