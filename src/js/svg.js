@@ -7,9 +7,9 @@ const createSVG = (answers) => {
   if (shape === 'circle') {
     shapeElement = circle(shapeColor);
   } else if (shape === 'triangle') {
-    shapeElement = triangle(100, shapeColor);
+    shapeElement = triangle(shapeColor);
   } else {
-    shapeElement = square(100, shapeColor);
+    shapeElement = square(shapeColor);
   }
 
   const svg = `

@@ -9,7 +9,8 @@ const triangle = (color) => `
   <polygon points="150,0 300,200 0,200" fill="${color}" />
 `;
 
-
-const square = (size, color) => `<rect x="0" y="0" width="${size}" height="${size}" fill="${color}" />`;
+const square = (color) => `
+  <rect x="0" y="0" width="300" height="200" fill="${color}" />
+`;
 
 module.exports = { circle, triangle, square };
