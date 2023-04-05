@@ -1,3 +1,4 @@
+// Defines a Shape class with a color, width, and height
 class Shape {
   constructor(color, width, height) {
     this.color = color;
@@ -5,22 +6,26 @@ class Shape {
     this.height = height || 200;
   }
 
+  // Method that returns an empty string by default (to be overridden by subclasses)
   getSVGElement() {
     return '';
   }
 }
 
+// Circle subclass that inherits from Shape
 class Circle extends Shape {
   constructor(color, width, height) {
     super(color, width, height);
     this.radius = this.height / 2;
   }
 
+  // Overrides the getSVGElement method to return an SVG circle element
   getSVGElement() {
     return `<circle cx="${this.width / 2}" cy="${this.height / 2}" r="${this.radius}" fill="${this.color}" />`;
   }
 }
 
+// Triangle subclass that inherits from Shape
 class Triangle extends Shape {
   constructor(color, width, height) {
     super(color, width, height);
@@ -31,6 +36,7 @@ class Triangle extends Shape {
   }
 }
 
+// Square subclass that inherits from Shape
 class Square extends Shape {
   constructor(color, width, height) {
     super(color, width, height);
