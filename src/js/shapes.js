@@ -1,16 +1,44 @@
-const circle = (color) => {
-  const radius = 200 / 2;
-  return `
-    <circle cx="150" cy="100" r="${radius}" fill="${color}" />
-  `;
-};
+class Shape {
+  constructor(color, width, height) {
+    this.color = color;
+    this.width = width || 300;
+    this.height = height || 200;
+  }
 
-const triangle = (color) => `
-  <polygon points="150,0 300,200 0,200" fill="${color}" />
-`;
+  getSVGElement() {
+    return '';
+  }
+}
 
-const square = (color) => `
-  <rect x="0" y="0" width="300" height="200" fill="${color}" />
-`;
+class Circle extends Shape {
+  constructor(color, width, height) {
+    super(color, width, height);
+    this.radius = this.height / 2;
+  }
 
-module.exports = { circle, triangle, square };
+  getSVGElement() {
+    return `<circle cx="${this.width / 2}" cy="${this.height / 2}" r="${this.radius}" fill="${this.color}" />`;
+  }
+}
+
+class Triangle extends Shape {
+  constructor(color, width, height) {
+    super(color, width, height);
+  }
+
+  getSVGElement() {
+    return `<polygon points="${this.width / 2},0 ${this.width},${this.height} 0,${this.height}" fill="${this.color}" />`;
+  }
+}
+
+class Square extends Shape {
+  constructor(color, width, height) {
+    super(color, width, height);
+  }
+
+  getSVGElement() {
+    return `<rect x="0" y="0" width="${this.width}" height="${this.height}" fill="${this.color}" />`;
+  }
+}
+
+module.exports = { Circle, Triangle, Square };

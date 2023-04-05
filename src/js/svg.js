@@ -1,24 +1,25 @@
-const { circle, triangle, square } = require('./shapes');
+const { Circle, Triangle, Square } = require('./shapes');
+
+const shapeClasses = {
+  circle: Circle,
+  triangle: Triangle,
+  square: Square,
+};
 
 const createSVG = (answers) => {
   const { shape, shapeColor, text, textColor } = answers;
 
-  let shapeElement;
-  if (shape === 'circle') {
-    shapeElement = circle(shapeColor);
-  } else if (shape === 'triangle') {
-    shapeElement = triangle(shapeColor);
-  } else {
-    shapeElement = square(shapeColor);
-  }
+  const ShapeClass = shapeClasses[shape];
+  const shapeInstance = new ShapeClass(shapeColor);
+
+  const shapeElement = shapeInstance.getSVGElement();
 
   const svg = `
-    <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    <svg width="${shapeInstance.width}" height="${shapeInstance.height}" xmlns="http://www.w3.org/2000/svg">
       ${shapeElement}
-      <text x="150" y="115" font-size="60" text-anchor="middle" fill="${textColor}">${text}</text>
+      <text x="${shapeInstance.width / 2}" y="${shapeInstance.height / 2}" font-size="60" text-anchor="middle" dominant-baseline="central" fill="${textColor}">${text}</text>
     </svg>
   `;
-
   return svg;
 };
 
