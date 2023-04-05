@@ -1,19 +1,24 @@
-const SVG = require('@svgdotjs/svg.js');
 const { circle, triangle, square } = require('./shapes');
-const svgWidth = 300;
-const svgHeight = 200;
 
 const createSVG = (answers) => {
-    const svg = SVG(svgWidth, svgHeight);
+    const { shape, shapeColor, text, textColor } = answers;
 
-    const shapeSize = Math.min(svgWidth, svgHeight) / 2;
+    let shapeElement;
+    if (shape === 'circle') {
+        shapeElement = circle(100, shapeColor);
+    } else if (shape === 'triangle') {
+        shapeElement = triangle(100, shapeColor);
+    } else {
+        shapeElement = square(100, shapeColor);
+    }
 
-    const shape = { circle, triangle, square }[answers.shape](shapeSize, answers.shapeColor);
-    shape.center(svgWidth / 2, svgHeight / 2);
-    svg.add(shape);
-
-    const text = SVG('<text>').text(answers.text).fill(answers.textColor).font({ size: shapeSize / 3 }).center(svgWidth / 2, svgHeight / 2);
-    svg.add(text);
+    const svg = `
+    <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="100%" height="100%" fill="${shapeColor}" />
+      ${shapeElement}
+      <text x="150" y="115" font-size="60" text-anchor="middle" fill="${textColor}">${text}</text>
+    </svg>
+  `;
 
     return svg;
 };

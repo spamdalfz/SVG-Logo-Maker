@@ -1,9 +1,12 @@
-const SVG = require('@svgdotjs/svg.js');
+const circle = (size, color) => `<circle cx="${size / 2}" cy="${size / 2}" r="${size / 2}" fill="${color}" />`;
 
-const circle = (size, color) => SVG('<circle>').radius(size).fill(color);
+const triangle = (size, color) => {
+    const halfSize = size / 2;
+    return `
+    <polygon points="${halfSize},0 ${size},${size} 0,${size}" fill="${color}" />
+  `;
+};
 
-const triangle = (size, color) => SVG('<polygon>').plot(`0,0 ${size},0 ${size / 2},${size}`).fill(color);
-
-const square = (size, color) => SVG('<rect>').size(size, size).fill(color);
+const square = (size, color) => `<rect x="0" y="0" width="${size}" height="${size}" fill="${color}" />`;
 
 module.exports = { circle, triangle, square };

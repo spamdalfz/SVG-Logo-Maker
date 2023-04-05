@@ -13,7 +13,7 @@ async function main() {
 
     const svg = createSVG(answers);
 
-    fs.writeFileSync('examples/logo.svg', svg.svg());
+    fs.writeFileSync('examples/logo.svg', svg);
     console.log('Generated logo.svg');
 }
 

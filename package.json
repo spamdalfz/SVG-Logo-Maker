@@ -11,8 +11,6 @@
     "logo"
   ],
   "dependencies": {
-    "@svgdotjs/svg.js": "^3.1.2",
-    "chalk": "^5.2.0",
     "inquirer": "^8.2.4"
   },
   "devDependencies": {
