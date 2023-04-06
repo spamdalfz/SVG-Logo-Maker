@@ -41,7 +41,7 @@ This project is licensed under the MIT license. Click [here](https://opensource.
 To contribute to this project, please read the installation section and ensure you have a solid understanding of the codebase. Contributions are welcome via pull requests.
 
 ## Tests
-To run tests, use the command npm test. The tests are designed to validate the functionality of the shape classes and SVG rendering.
+To run tests, use the command ```npm test```. The tests are designed to validate the functionality of the shape classes and SVG rendering.
 
 ## Questions
 If you have any questions, you can reach out to me on [GitHub](https://github.com/spamdalfz) or contact me directly at coreyvasser@gmail.com.
