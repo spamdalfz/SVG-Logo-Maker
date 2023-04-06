@@ -6,7 +6,6 @@ class Shape {
     this.height = height || 200;
 
   }
-
   // Method that returns an empty string by default (to be overridden by subclasses)
   getSVGElement() {
     return '';
@@ -19,7 +18,6 @@ class Circle extends Shape {
     super(color, width, height);
     this.radius = this.height / 2;
   }
-
   // Overrides the getSVGElement method to return an SVG circle element
   getSVGElement() {
     return `<circle cx="${this.width / 2}" cy="${this.height / 2}" r="${this.radius}" fill="${this.color}" />`;
